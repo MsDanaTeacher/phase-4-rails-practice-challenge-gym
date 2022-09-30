@@ -1,0 +1,9 @@
+class Membership < ApplicationRecord
+    belongs_to :gym
+    belongs_to :client
+
+    validates :client, uniqueness: { scope: :gym, message: "should happen once"}
+    validates :gym_id, presence: true
+    validates :client_id, presence: true
+    validates :charge, presence: true
+end
